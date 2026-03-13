@@ -1,0 +1,228 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  margin: 0;
+}
+
+/* Header */
+.Header{
+  background-image:url(../Images/Header.JPG);
+   background-size: cover;
+   background-position:center ;
+   background-repeat: no-repeat;
+   height: 600px;
+   background-color: #1e3a8a;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  padding: 100px;
+}
+.Header h1{
+margin-bottom: 50px;
+font-size: 70px;
+margin-left: 0px;
+margin-bottom: 100px;
+
+}
+.Header p{
+margin-left: 100px;;
+}
+
+.bottom{
+  display:inline-flex;
+   background-color: #1e3a8a;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+  margin-left: 100px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.bottom a{
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  
+}
+
+.bottom:hover{
+  background-color: #162d6b;
+  transform: scale(1.05);
+}
+
+/* Content */
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.content h2{
+  color: #1e3a8a;
+  margin-bottom: 25px;
+}
+.content p{
+  margin-bottom: 25px;
+  font-size: 23px;
+  text-align: center;
+  ;
+}
+
+
+
+/* projects */
+.Projects{
+  display: flex;
+ 
+  justify-content: center;
+  gap: 100px; /* المسافة بين المربعات */
+  margin-top: 30px;
+  
+  
+
+}
+
+/* الكرت */
+.Project-card{
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+
+}
+
+/* تأثير عند المرور */
+.Project-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+ 
+}
+
+.Project-card h3{
+  margin-bottom: 15px;
+  color: #1e3a8a;
+}
+.pdf-btn{
+  display: inline-block;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.pdf-btn:hover{
+  background-color: #3749ab;
+  transform: scale(1.05);
+}
+
+/* From Uiverse.io by ryota1231 */ 
+.animated-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  border-radius: 100px;
+  font-weight: 600;
+  background-color: hwb(0 94% 6%);
+  color: #1f387e;
+  box-shadow: 0 0 0 2px #ffffff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  text-decoration: none;
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: #1f387e;
+  
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #c5e5e4;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+  text-decoration: none;
+}
+
+.animated-button:hover svg {
+  fill: #1f387e;
+  text-decoration: none;
+}
+
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}

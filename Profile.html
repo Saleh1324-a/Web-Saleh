@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saleh Alamri — Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f6f6f6; --bg2: #ffffff; --soft: #efefef;
+      --border: #e2e2e2; --border2: #c8c8c8;
+      --text: #1c1c1c; --muted: #787878;
+      --accent: #4a6fa5; --btn: #2c2c2c; --btn-h: #111;
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 5rem; background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-back { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    .layout { display: grid; grid-template-columns: 340px 1fr; min-height: calc(100vh - 62px); }
+
+    /* SIDEBAR */
+    aside {
+      background: var(--bg2); border-right: 1px solid var(--border);
+      padding: 3.5rem 2rem; display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: sticky; top: 62px;
+      height: calc(100vh - 62px); overflow-y: auto;
+    }
+
+    .avatar-wrap { position: relative; margin-bottom: 1.5rem; }
+    .avatar-wrap img {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; object-position: top center;
+      border: 3px solid var(--border2);
+    }
+    .av-dot {
+      position: absolute; bottom: 10px; right: 10px;
+      width: 14px; height: 14px; background: #56b870;
+      border-radius: 50%; border: 2px solid var(--bg2);
+    }
+
+    .s-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+    .s-role { font-size: 0.78rem; color: var(--accent); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
+    .s-loc { font-size: 0.77rem; color: var(--muted); margin-bottom: 1.8rem; }
+
+    .s-divider { width: 100%; height: 1px; background: var(--border); margin: 1.3rem 0; }
+
+    .s-section-lbl { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-weight: 700; margin-bottom: 0.9rem; text-align: left; width: 100%; }
+
+    .s-contacts { width: 100%; display: flex; flex-direction: column; gap: 0.6rem; }
+    .s-crow { display: flex; align-items: center; gap: 0.7rem; font-size: 0.8rem; color: var(--muted); text-align: left; }
+    .s-crow a { color: var(--muted); text-decoration: none; transition: color 0.2s; word-break: break-all; }
+    .s-crow a:hover { color: var(--accent); }
+    .s-ico { width: 28px; height: 28px; flex-shrink: 0; background: var(--soft); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; border: 1px solid var(--border); }
+
+    .skills-list { width: 100%; }
+    .sk-row { margin-bottom: 1.1rem; text-align: left; }
+    .sk-hdr { display: flex; justify-content: space-between; margin-bottom: 0.35rem; font-size: 0.8rem; }
+    .sk-pct { font-size: 0.72rem; color: var(--accent); font-weight: 700; }
+    .sk-bar { height: 3px; background: var(--soft); border-radius: 100px; overflow: hidden; border: 1px solid var(--border); }
+    .sk-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #3a5a8a); border-radius: 100px; width: 0; transition: width 1.3s cubic-bezier(0.4,0,0.2,1); }
+
+    .cv-btn {
+      width: 100%; padding: 0.8rem;
+      background: var(--btn); color: #fff;
+      border-radius: 6px; font-family: 'Inter', sans-serif;
+      font-size: 0.83rem; font-weight: 700;
+      text-decoration: none; text-align: center;
+      display: block; margin-top: 1.3rem; transition: background 0.2s;
+    }
+    .cv-btn:hover { background: var(--btn-h); }
+
+    /* MAIN */
+    main { padding: 3.5rem 4rem; overflow-y: auto; }
+    .m-sec { margin-bottom: 3.5rem; }
+    .m-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--text);
+      letter-spacing: -0.5px; margin-bottom: 1.3rem;
+      padding-bottom: 0.7rem; border-bottom: 1px solid var(--border);
+    }
+
+    .bio-p { color: var(--muted); line-height: 2; font-size: 0.9rem; margin-bottom: 1rem; }
+    .bio-p strong { color: var(--text); font-weight: 600; }
+
+    .exp-list { display: flex; flex-direction: column; gap: 1rem; }
+    .exp-item {
+      display: flex; gap: 1.3rem; padding: 1.3rem;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; transition: border-color 0.2s;
+    }
+    .exp-item:hover { border-color: var(--border2); }
+    .exp-ico { width: 40px; height: 40px; flex-shrink: 0; background: var(--soft); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; border: 1px solid var(--border); }
+    .exp-ttl { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .exp-sub { font-size: 0.75rem; color: var(--accent); margin-bottom: 0.45rem; font-weight: 600; }
+    .exp-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; }
+
+    .cl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; }
+    .cl-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 7px; padding: 0.9rem;
+      text-align: center; font-size: 0.82rem; font-weight: 700;
+      color: var(--muted); letter-spacing: 0.5px;
+      transition: all 0.2s;
+    }
+    .cl-card:hover { border-color: var(--border2); color: var(--text); }
+
+    @media (max-width:900px) {
+      nav { padding: 1rem 1.5rem; }
+      .layout { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; }
+      main { padding: 2rem 1.5rem; }
+      .cl-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">Saleh<span>.</span></a>
+  <a href="./index.html" class="nav-back">← Back to Portfolio</a>
+</nav>
+
+<div class="layout">
+  <aside>
+    <div class="avatar-wrap">
+      <img src="./Images/Saleh.jpg" alt="Saleh Alamri">
+      <div class="av-dot"></div>
+    </div>
+    <div class="s-name">Saleh Alamri</div>
+    <div class="s-role">Frontend Developer & Drone Photographer</div>
+    <div class="s-loc">📍 Riyadh, Saudi Arabia</div>
+
+    <div class="s-divider"></div>
+    <div class="s-section-lbl">Contact</div>
+    <div class="s-contacts">
+      <div class="s-crow"><span class="s-ico">📧</span><a href="mailto:Saleh.alamri675@gmail.com">Saleh.alamri675@gmail.com</a></div>
+      <div class="s-crow"><span class="s-ico">📱</span><a href="tel:+966532477256">+966 532 477 256</a></div>
+      <div class="s-crow"><span class="s-ico">🌐</span><a href="https://linktr.ee/Saleh1324" target="_blank">linktr.ee/Saleh1324</a></div>
+    </div>
+
+    <div class="s-divider"></div>
+    <div class="s-section-lbl">Skills</div>
+    <div class="skills-list">
+      <div class="sk-row"><div class="sk-hdr"><span>HTML & CSS</span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" data-w="90"></div></div></div>
+      <div class="sk-row"><div class="sk-hdr"><span>JavaScript</span><span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+      <div class="sk-row"><div class="sk-hdr"><span>Responsive Design</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" data-w="88"></div></div></div>
+      <div class="sk-row"><div class="sk-hdr"><span>Drone Flying</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" data-w="92"></div></div></div>
+      <div class="sk-row"><div class="sk-hdr"><span>Photo Editing</span><span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+    </div>
+
+    <a href="./files/Portfolio_Saleh.pdf" class="cv-btn" target="_blank">Download Portfolio PDF ↓</a>
+  </aside>
+
+  <main>
+    <div class="m-sec">
+      <div class="m-title">👤 About Me</div>
+      <p class="bio-p">I'm a <strong>Software Engineering student</strong> with a deep passion for frontend development. I build modern, responsive websites with clean code and strong attention to user experience.</p>
+      <p class="bio-p">Alongside development, I'm a <strong>professional drone photographer</strong> offering aerial services for events, construction, and corporate clients — working with major companies including <strong>KAFD, Saudia Cargo, Seven, BYD,</strong> and more.</p>
+      <p class="bio-p">My combination of technical skill and creative vision allows me to approach every project with both a developer's precision and an artist's eye.</p>
+    </div>
+
+    <div class="m-sec">
+      <div class="m-title">💼 Experience</div>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-ico">💻</div>
+          <div>
+            <div class="exp-ttl">Frontend Developer</div>
+            <div class="exp-sub">Freelance · 2023 – Present</div>
+            <div class="exp-desc">Building responsive portfolio websites, landing pages, and web applications using HTML, CSS, and JavaScript.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-ico">🚁</div>
+          <div>
+            <div class="exp-ttl">Drone Photographer & Videographer</div>
+            <div class="exp-sub">Freelance · 2022 – Present</div>
+            <div class="exp-desc">Professional aerial photography and videography for events, construction documentation, and corporate clients across Riyadh.</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-ico">🎓</div>
+          <div>
+            <div class="exp-ttl">Software Engineering Student</div>
+            <div class="exp-sub">University · In Progress</div>
+            <div class="exp-desc">Studying software engineering with a focus on web technologies and frontend development.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-sec">
+      <div class="m-title">🏢 Companies I've Worked With</div>
+      <div class="cl-grid">
+        <div class="cl-card">KAFD</div>
+        <div class="cl-card">Seven</div>
+        <div class="cl-card">HI Production</div>
+        <div class="cl-card">BYD</div>
+        <div class="cl-card">Saudia Cargo</div>
+        <div class="cl-card">Saudi Electricity</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.sk-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
+    }, 300);
+  });
+</script>
+</body>
+</html>
